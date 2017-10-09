@@ -1,4 +1,4 @@
-![screenshot](https://github.com/eelfroth/like-insects/blob/master/screenshot.jpg "Like Insects")
+![screenshot](https://github.com/eelfroth/like-insects/blob/1.2/screenshot.jpg "Like Insects")
 # Like Insects
 a game made for the [25th Ludum Dare](http://ludumdare.com/compo/ludum-dare-25/?action=preview&uid=7288) competition. all assets and all the code (including a small physics engine) were created within 48 hours.
 the game is about creating huge piles of corpses, and collecting skulls for score…
