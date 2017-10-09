@@ -61,41 +61,41 @@ int skulls_taken, kills;
 float rain, rain_time;
 boolean startscreen=true;
 
-void initialize() {  
+void initialize() {
   initialize_sound();
-  
+
   walls = new ArrayList<Wall>();
   walls.add(new Wall(0, pg.height-16, pg.width, 20));
   walls.add(new Wall(-16, -16, 16, pg.height+16));
   walls.add(new Wall(pg.width, -16, 16, pg.height+16));
-  
+
   bodies = new ArrayList<RigidBody>();
   player = new Player(200, 180);
-  
+
   enemies = new ArrayList<Enemy>();
   corpses = new ArrayList<Corpse>();
   sky = new Sky();
-  
+
   skulls = new ArrayList<Skull>();
   particles = new ArrayList<Particle>();
   /*for(int i=0;i<100;i++) {
     Skull s = new Skull(random(pg.width/2 - 100, pg.width/2 + 100), 0, 0);
     skulls.add(s);
   }*/
-  
+
   enemy_max = 1;
   wave_time = 200;
   wave = 100;
-  
+
   rain_time = 30;
   rain = 0;
-  
+
   skulls_taken = 0;
   kills = 0;
 }
 ///////////////////////////////////////////////////
 
-void update(){ 
+void update() {
   if (!startscreen) {
     if (!player.destroy) {
       wave -= delta;
@@ -107,8 +107,10 @@ void update(){
           enemies.add(new Enemy(x, -20));
         }
         wave = wave_time;
+        sSpawn.trigger(floor(enemy_max));
       }
-      
+
+      sSpawn.update();
       player.update();
     }
     else {
@@ -123,7 +125,7 @@ void update(){
         }
       }
     }
-    
+
     for(int i=0; i<enemies.size();i++) {
       Enemy e = enemies.get(i);
       e.update();
@@ -132,7 +134,7 @@ void update(){
         i--;
       }
     }
-    
+
     for(int i=0; i<corpses.size();i++) {
       Corpse e = corpses.get(i);
       e.update();
@@ -141,7 +143,7 @@ void update(){
         i--;
       }
     }
-    
+
     for(int i=0; i<skulls.size();i++) {
       Skull e = skulls.get(i);
       e.update();
@@ -166,7 +168,7 @@ void update(){
 
 void display(){
   sky.display();
-  
+
   for(Enemy e : enemies) {
     e.display();
   }
@@ -179,7 +181,7 @@ void display(){
   for(Particle e : particles) {
     e.display();
   }
-  
+
   if (!player.destroy) {
     if (!startscreen) player.display();
   }
@@ -187,17 +189,17 @@ void display(){
     font.align.x = CENTER;
     font.text("score: " + str(skulls.size()-1), pg.width/2, pg.height/2);
   }
-  
-  
+
+
   for(int i=0; i<sky.clouds2.length; i++) {
       sky.clouds2[i].display();
   }
   if (!player.destroy) {
     tCross.rotate = float(millis()) / 1000;
     tCross.tint = color(random(255));
-    tCross.draw(0, (mouseX-offset_x)/scaling, (mouseY-offset_y)/scaling);
+    tCross.draw(0, (mouseX-offset_x)/scaling_x, (mouseY-offset_y)/scaling_y);
   }
-  
+
   if(startscreen) {
     pg.imageMode(CENTER);
     pg.image(title, pg.width/2, 48);
@@ -205,7 +207,7 @@ void display(){
     font.align.x = CENTER;
     font.align.y = CENTER;
     font.text("MOVE: WASD\nSHOOT: MOUSE\nPRESS SPACE TO\nHARVEST SKULLS!\n\n-CLICK TO START-", pg.width/2, pg.height/2+20);
-    font.text("GAME BY EELFROTH\n", pg.width/2, pg.height - 13);
+    font.text("EELFROTH\t V1.2\n", pg.width/2, pg.height - 13);
   }
 }
 ///////////////////////////////////////////////////
@@ -215,7 +217,7 @@ void mousePressed() {
   if (mouseButton == LEFT) {
     mLeft = true;
     /*if (check_key(KeyEvent.VK_F2)) {
-      enemies.add(new Enemy(mouseX/scaling-6, mouseY/scaling-10));
+      enemies.add(new Enemy(mouseX/scaling_x-6, mouseY/scaling_y-10));
     }*/
   }
   if (mouseButton == RIGHT) {
@@ -237,16 +239,16 @@ void mouseReleased() {
 }
 
 void editor() {
-  float x = mouseX / scaling;
-  float y = mouseY / scaling;
-  
+  float x = mouseX / scaling_x;
+  float y = mouseY / scaling_y;
+
   /*if (check_key(KeyEvent.VK_F1)) {
     if (mLeft) {
       if (check_wall(x, y) == null) {
         walls.add(new Wall(round((x-8)/16)*16, round((y-8)/16)*16, 16, 16));
       }
     }
-    
+
     else if (mRight) {
       Wall w = check_wall(x, y);
       if (w != null) {
@@ -264,7 +266,7 @@ Wall check_wall(float x, float y) {
       }
     }
   }
-  
+
   return null;
 }
 
@@ -276,7 +278,7 @@ RigidBody check_body(float x, float y) {
       }
     }
   }
-  
+
   return null;
 }
 

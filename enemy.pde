@@ -94,9 +94,11 @@ class Enemy extends RigidBody {
     }
   }
   
-  void kill() {
+  void kill(boolean splatter) {
     super.kill();
-    corpses.add(new Corpse(l.x, l.y, flip));
+    Corpse corpse = new Corpse(l.x, l.y, flip);
+    corpses.add(corpse);
+    if (splatter) corpse.kill();
     sStirb.trigger();
     /*for(int i=0; i<10; i++) {
       Particle p = new Blood(l.x+6, l.y+4);
@@ -107,6 +109,10 @@ class Enemy extends RigidBody {
     if (!player.destroy) {
       kills++;
     }
+  }
+
+  void kill() {
+    kill(false);
   }
   
   boolean is_enemy() {
@@ -177,3 +183,5 @@ class Corpse extends RigidBody {
     particles.add(new Limb(l.x+10, l.y+4, 4));
   }
 }
+
+

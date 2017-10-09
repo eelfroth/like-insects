@@ -2,9 +2,10 @@ import ddf.minim.*;
 
 ///////////////////////////////////////////////////
 // Environment settings
-int     buffer_width = 320; 
+int     buffer_width = 426;
 int     buffer_height = 240;
-float   scaling = 4;
+float   scaling_x = 4;
+float   scaling_y = 4;
 boolean fullscreen = false;
 boolean interpolation = false;
 float   frames_per_second = 60;
@@ -18,18 +19,18 @@ PGraphics pg;
 int last_millis=0;
 float delta, graphics_width, graphics_height, offset_x, offset_y;
 HashMap pressed_keys;
-                   
+
 void setup(){
   //Set window and graphics size
   fullScreen(P2D);
-  
+
   set_graphics_size();
-  
+
   //Set frame rate cap
   if (full_frame_rate) frameRate(9999);
   else frameRate(frames_per_second);
   //frameRate(30);
-  
+
   //Set sampling-mode
   if (interpolation) ((PGraphicsOpenGL)g).textureSampling(5);
   else ((PGraphicsOpenGL)g).textureSampling(2);
@@ -69,14 +70,15 @@ void set_graphics_size() {
       graphics_width = width;
       graphics_height = width * aspect_ratio;
     }
-    scaling = graphics_width / buffer_width;
-    offset_x = (displayWidth - graphics_width)/2;
-    offset_y = (displayHeight - graphics_height)/2;
   }
   else {
     graphics_width = width;
     graphics_height = height;
   }
+  scaling_x = graphics_width / buffer_width;
+  scaling_y = graphics_height / buffer_height;
+  offset_x = (width - graphics_width);
+  offset_y = (height - graphics_height);
 }
 ///////////////////////////////////////////////////
 
@@ -163,4 +165,3 @@ boolean check_key(String k) {
 }
 
 //////////////////////////////////////////////////////
-

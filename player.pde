@@ -42,7 +42,7 @@ class Player extends RigidBody {
     tSpiral.scale.set(4, 4, 0);
     tSpiral.rotate = float(millis()) / 100;
     tSpiral.tint = color(0, 100);
-    tSpiral.draw(0, (mouseX-offset_x)/scaling, (mouseY-offset_y)/scaling);
+    tSpiral.draw(0, (mouseX-offset_x)/scaling_x, (mouseY-offset_y)/scaling_y);
     
     
     if(take == 0) aPlayer.draw(l.x + (16*flip) -2, l.y);
@@ -102,7 +102,7 @@ class Player extends RigidBody {
       }
       
       if (mLeft) {
-        PVector bullet_v = new PVector ((mouseX-offset_x)/scaling - (l.x + 6), (mouseY-offset_y)/scaling - (l.y));
+        PVector bullet_v = new PVector ((mouseX-offset_x)/scaling_x - (l.x + 6), (mouseY-offset_y)/scaling_y - (l.y));
         bullet_v.normalize();
         bullet_v.mult(5);
         bullets.add(new Bullet(l.x + 6, l.y,
@@ -116,7 +116,7 @@ class Player extends RigidBody {
       if(on_floor && check_key(' ')) {
         RigidBody b = check_body(l.x+6, l.y + 21);
         if(b != null) {
-          if (b.is_corpse()) {
+          if (b.is_corpse() || b.is_enemy()) {
             take = 1;
           }
         }
@@ -134,11 +134,15 @@ class Player extends RigidBody {
         RigidBody b = check_body(l.x+6, l.y + 21);
         if(b != null) {
           if (b.is_corpse()) {
-            b.kill();
+	    //if (b.is_enemy()) {
+	    //        Enemy e = (Enemy) b;
+	    //        e.kill(true);
+	    //}
+	    b.kill();
             taken = true;
             skulls_taken++;
-          }else take = 0;
-        }else take = 0;
+          } else take = 0;
+        } else take = 0;
       }
       
     }

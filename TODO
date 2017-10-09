@@ -1,0 +1,40 @@
+1.2
+|
++-+-→ bugfixes
+| |---→ CRASH: memory leak?
+| '---→ enemy in floor
++-+-→ online highscore
+| |---→ all time, daily, local
+| |---→ automatic end-screenshot
+| |---→ ingame leaderboards
+| '---→ website leaderboards
++---→ harvest living enemies ——————————————[ REJECTED ]————————————————————
++-+-→ spawn interval beat —————————————————[ DONE ]————————————————————————
+| |---→ sfx (kick drum) ———————————————————[ DONE ]————————————————————————
+| |---→ repeat n times, n = max enemies ———[ DONE ]————————————————————————
+| '---→ sfx interval ⊥ respawn interval ———[ DONE ]————————————————————————
++---→ better skull pile
+| |---→ skull torque
+| '---→ straigt fall
++---→ more animation frames
++---→ corpse parts physics
++-+-→ title screen after death
+  |-→ [R] restarts
+  '-→ [ESC] to titlescreen
+
+1.3
+|
++-+-→ controller support
+| |---→ implementation
+| +---→ configuration
++---→ secret ending
++-+-→ vfx shaders
+  |---→ jitter
+  |---→ halo
+  |---→ spiral
+  '---→ beams
+
+1.4
+|
++---→ mobile port
+
