@@ -113,16 +113,12 @@ class Player extends RigidBody {
         }
       }
       
-      if(on_floor && check_key(' ')) {
-        RigidBody b = check_body(l.x+6, l.y + 21);
-        if(b != null) {
-          if (b.is_corpse() || b.is_enemy()) {
-            take = 1;
-          }
-        }
+      if(check_key(' ')) {
+	take = 1;
+	if (v.y < 0) v.y = 0;
       }
     }
-    
+     
     else {
       a.x = 0;
       take += delta;
@@ -132,19 +128,17 @@ class Player extends RigidBody {
       }
       else if (take >= take_time/2 && !taken) {
         RigidBody b = check_body(l.x+6, l.y + 21);
+	if (b == null || !b.is_corpse()) b = check_body(l.x, l.y + 21);
+	if (b == null || !b.is_corpse()) b = check_body(l.x+12, l.y + 21);
         if(b != null) {
           if (b.is_corpse()) {
-	    //if (b.is_enemy()) {
-	    //        Enemy e = (Enemy) b;
-	    //        e.kill(true);
-	    //}
 	    b.kill();
             taken = true;
             skulls_taken++;
           } else take = 0;
         } else take = 0;
       }
-      
+      if (on_floor && check_key(' ')) take = 1;
     }
   }
   

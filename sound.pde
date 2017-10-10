@@ -64,7 +64,6 @@ class AudioSampleRepeater {
 			t = new Float(t.floatValue() - delta);
 			timer.set(i, t);
 			if(t.floatValue() <= 0) {
-				println("BUMM…");
 				sample.trigger();
 				timer.remove(i);
 				i--;

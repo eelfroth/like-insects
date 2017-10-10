@@ -8,17 +8,20 @@
 | |---→ automatic end-screenshot
 | |---→ ingame leaderboards
 | '---→ website leaderboards
-+---→ harvest living enemies ——————————————[ REJECTED ]————————————————————
-+-+-→ spawn interval beat —————————————————[ DONE ]————————————————————————
-| |---→ sfx (kick drum) ———————————————————[ DONE ]————————————————————————
-| |---→ repeat n times, n = max enemies ———[ DONE ]————————————————————————
-| '---→ sfx interval ⊥ respawn interval ———[ DONE ]————————————————————————
++---→ rework harvesting
+| |---→ harvest living enemies ————————————[ REJECTED ]——————————————————
+| |---→ more lenient corpse checking ——————[ DONE ]——————————————————————
+| '---→ take anim everywhere ——————————————[ DONE ]——————————————————————
++-+-→ spawn interval beat —————————————————[ DONE ]——————————————————————
+| |---→ sfx (kick drum) ———————————————————[ DONE ]——————————————————————
+| |---→ repeat n times, n = max enemies ———[ DONE ]——————————————————————
+| '---→ sfx interval ⊥ respawn interval ———[ DONE ]——————————————————————
 +---→ better skull pile
 | |---→ skull torque
 | '---→ straigt fall
 +---→ more animation frames
 +---→ corpse parts physics
-+-+-→ title screen after death
++-+-→ title screen after death ————————————[ DONE ]——————————————————————
   |-→ [R] restarts
   '-→ [ESC] to titlescreen
 

@@ -233,6 +233,7 @@ void mouseReleased() {
       if (skulls.size() > skulls_taken) {
         bg1.close();
         minim.stop();
+	startscreen = true;
         initialize();
       }
     }
