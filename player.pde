@@ -1,5 +1,5 @@
 class Player extends RigidBody {
-  boolean jumped, taken;
+  boolean jumped, taken, walking;
   ArrayList<Bullet> bullets;
   int flip;
   float take, take_time;
@@ -76,16 +76,25 @@ class Player extends RigidBody {
         a.x = -0.5;
         flip = 0;
         aPlayer.scale.x = 1;
+	if (!walking) {
+          aPlayer.index = 1;
+          walking = true;
+	}
       }
       else if (check_key('d')) {
         a.x = 0.5;
         flip = 1;
         aPlayer.scale.x = -1;
+	if (!walking) {
+	  aPlayer.index = 1;
+	  walking = true;
+	}
       }
       else {
         a.x = 0;
         aPlayer.speed = 0;
         aPlayer.index = 0;
+	walking = false;
       }
       if (check_key('w')) {
         if (on_floor && !jumped) {

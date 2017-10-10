@@ -10,7 +10,7 @@ LIKE INSECTS TODO
 | |---→ automatic end-screenshot
 | |---→ ingame leaderboards
 | '---→ website leaderboards
-+---→ rework harvesting ———————————————————[ DONE ]——————————————————————
++-+-→ rework harvesting ———————————————————[ DONE ]——————————————————————
 | |---→ harvest living enemies ——————————[ REJECTED ]————————————————————
 | |---→ more lenient corpse checking ——————[ DONE ]——————————————————————
 | '---→ take anim everywhere ——————————————[ DONE ]——————————————————————
@@ -18,10 +18,11 @@ LIKE INSECTS TODO
 | |---→ sfx (kick drum) ———————————————————[ DONE ]——————————————————————
 | |---→ repeat n times, n = max enemies ———[ DONE ]——————————————————————
 | '---→ sfx interval ⊥ respawn interval ———[ DONE ]——————————————————————
-+---→ better skull pile
++-+-→ better skull pile
 | |---→ skull torque
 | '---→ straigt fall
-+---→ more animation frames
++-+-→ more animation frames
+| '---→ player walk: jump tp frame 1 ——————[ DONE ]——————————————————————
 +---→ corpse parts physics ——————————————[ REJECTED ]————————————————————
 +---→ bullet particles ————————————————————[ DONE ]——————————————————————
 +-+-→ title screen after death ————————————[ DONE ]——————————————————————
@@ -36,9 +37,8 @@ LIKE INSECTS TODO
 +---→ secret ending
 +-+-→ vfx shaders
   |---→ jitter
-  |---→ halo
   |---→ spiral
-  '---→ beams
+  '---→ rays
 
 1.4
 |
