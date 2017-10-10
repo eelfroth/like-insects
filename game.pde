@@ -162,6 +162,12 @@ void update() {
     }
     sky.update();
   }
+  if (check_key('r')) {
+        bg1.close();
+        minim.stop();
+	startscreen = false;
+	initialize();
+  }
   //editor();
 }
 ///////////////////////////////////////////////////

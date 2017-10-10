@@ -136,6 +136,16 @@ void keyPressed() {
     pressed_keys.put(str(keyCode), true);
   }
   else {
+    if (key == ESC){
+      if (startscreen) exit();
+      else {
+        bg1.close();
+        minim.stop();
+        startscreen = true;
+        initialize();
+      }
+      key = 0;
+    }
     pressed_keys.put(str(key).toLowerCase(), true);
   }
 }
