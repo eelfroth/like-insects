@@ -87,7 +87,7 @@ void initialize() {
   wave_time = 200;
   wave = 100;
 
-  rain_time = 30;
+  rain_time = 20;
   rain = 0;
 
   skulls_taken = 0;
@@ -119,7 +119,7 @@ void update() {
         rain = rain_time;
         if(skulls.size()-1 < skulls_taken) {
           Skull s = new Skull(pg.width/2, 0, 0);
-          s.v.x = random(-5, 5);
+          //s.v.x = random(-5, 5);
           skulls.add(s);
           sFall.trigger();
         }
