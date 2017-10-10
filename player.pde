@@ -113,7 +113,7 @@ class Player extends RigidBody {
         }
       }
       
-      if(check_key(' ')) {
+      if(check_key(' ') || check_key('s')) {
 	take = 1;
 	if (v.y < 0) v.y = 0;
       }
@@ -135,10 +135,14 @@ class Player extends RigidBody {
 	    b.kill();
             taken = true;
             skulls_taken++;
-          } else take = 0;
-        } else take = 0;
+          } else take = -1;
+        } else take = -1;
+	if (take == -1) {
+          if (on_floor && check_key(' ') || check_key('s'))
+	    take = take_time/2 -1;
+	  else take = 0;
+	}
       }
-      if (on_floor && check_key(' ')) take = 1;
     }
   }
   
@@ -153,6 +157,13 @@ class Player extends RigidBody {
     bg1 = minim.loadFile("bg2.mp3");
     bg1.play();
     bg1.loop();
+    //for(int i=0; i<1000; i++) {
+    //  Blood p = new Blood(l.x+6, l.y+20);
+    //  p.v.y = -random(random(20));
+    //  p.v.x = random(-random(20), random(20));
+    //  p.c = 0;
+    //  particles.add(p);
+    //}
   }
   
 }
@@ -167,6 +178,11 @@ class Bullet {
   }
   
   void update() {
+    Blood b = new Blood(l.x, l.y);
+    b.life = 30;
+    b.life_max = 30;
+    b.c = 0;
+    particles.add(b);
     l.add(PVector.mult(v, delta));
     
     if(check_wall(l.x, l.y) != null) {

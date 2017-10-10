@@ -175,12 +175,13 @@ void display(){
   for(Corpse e : corpses) {
     e.display();
   }
-  for(Skull e : skulls) {
-    e.display();
-  }
   for(Particle e : particles) {
     e.display();
   }
+  for(Skull e : skulls) {
+    e.display();
+  }
+  
 
   if (!player.destroy) {
     if (!startscreen) player.display();

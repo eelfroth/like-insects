@@ -68,6 +68,7 @@ class RigidBody {
     else a.y = 0;
     v.add(PVector.mult(a, delta));
     v.mult((1-friction * delta) );
+    //v.mult((1-friction * delta * min(mass*2, 1)));
     
     l.add(PVector.mult(v, delta));
     

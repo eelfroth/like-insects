@@ -20,12 +20,19 @@ class Particle extends RigidBody {
 }
 
 class Blood extends Particle{
+  float c;
+  float life_max;
+
   Blood(float x, float y) {
-    super(x, y, 1, 1, 0.1, 0.75, 1000);
+    super(x, y, 1, 1, 0.1, 0.1, 1000);
+    c = 200;
+    life_max = 1000;
+    //v.y = -random(random(8));
+    //v.x = random(-random(8), random(8));
   }
   
   void display() {
-    pg.stroke(200, life/1000 * 255);
+    pg.stroke(c, life/life_max * 255);
     pg.point(l.x, l.y);
   }
 }
@@ -35,11 +42,12 @@ class Limb extends Particle{
   float rotate;
   
   Limb(float x, float y, int index) {
-    super(x, y, 1, 1, 0.1, 0.75, 1000);
+    super(x, y, 1, 1, 0.3, 0.75, 1000);
     this.index = index;
     rotate = random(TWO_PI);
-    v.y = -random(5);
-    v.x = random(-4, 4);
+    v.y = -random(4);
+    v.x = random(-5, 5);
+    //bodies.add(this);
   }
   
   void display() {

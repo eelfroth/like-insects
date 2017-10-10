@@ -1,3 +1,5 @@
+LIKE INSECTS TODO
+
 1.2
 |
 +-+-→ bugfixes
@@ -8,8 +10,8 @@
 | |---→ automatic end-screenshot
 | |---→ ingame leaderboards
 | '---→ website leaderboards
-+---→ rework harvesting
-| |---→ harvest living enemies ————————————[ REJECTED ]——————————————————
++---→ rework harvesting ———————————————————[ DONE ]——————————————————————
+| |---→ harvest living enemies ——————————[ REJECTED ]————————————————————
 | |---→ more lenient corpse checking ——————[ DONE ]——————————————————————
 | '---→ take anim everywhere ——————————————[ DONE ]——————————————————————
 +-+-→ spawn interval beat —————————————————[ DONE ]——————————————————————
@@ -20,7 +22,8 @@
 | |---→ skull torque
 | '---→ straigt fall
 +---→ more animation frames
-+---→ corpse parts physics
++---→ corpse parts physics ——————————————[ REJECTED ]————————————————————
++---→ bullet particles ————————————————————[ DONE ]——————————————————————
 +-+-→ title screen after death ————————————[ DONE ]——————————————————————
   |-→ [R] restarts
   '-→ [ESC] to titlescreen
