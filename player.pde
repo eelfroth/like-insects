@@ -187,13 +187,13 @@ class Bullet {
   }
   
   void update() {
-    Blood b = new Blood(l.x, l.y);
-    b.life = 30;
-    b.life_max = 30;
-    b.c = 0;
+    /*Blood b = new Blood(l.x, l.y);
+    b.life = 1000;
+    b.life_max = 1000;
+    b.c = 200;
     particles.add(b);
+    */
     l.add(PVector.mult(v, delta));
-    
     if(check_wall(l.x, l.y) != null) {
       destroy = true;
     }

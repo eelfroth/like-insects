@@ -27,16 +27,17 @@ LIKE INSECTS TODO
 +---→ corpse parts physics ——————————————[ REJECTED ]————————————————————
 +---→ bullet particles ————————————————————[ DONE ]——————————————————————
 +-+-→ title screen after death ————————————[ DONE ]——————————————————————
-  |---→ [R] restarts ——————————————————————[ DONE ]——————————————————————
-  '---→ [ESC] to titlescreen ——————————————[ DONE ]——————————————————————
+| |---→ [R] restarts ——————————————————————[ DONE ]——————————————————————
+| '---→ [ESC] to titlescreen ——————————————[ DONE ]——————————————————————
+'---→ corpse momentum —————————————————————[ DONE ]——————————————————————
 
 1.3
 |
 +-+-→ controller support
 | |---→ implementation
-| +---→ configuration
+| '---→ configuration
 +---→ secret ending
-+-+-→ vfx shaders
+'-+-→ vfx shaders
   |---→ jitter
   |---→ spiral
   '---→ rays
@@ -44,3 +45,18 @@ LIKE INSECTS TODO
 1.4
 |
 +---→ mobile port
+
+IDEAS
+|
++-+-→ enemy types
+| |---→ secret boss fight
+| |---→ shooting enemy
+| '---→ flying enemy
+| '---→ corpse shredder
+'-+-→ power-up corpses
+  |-+-→ alternate weapons
+  | |---→ sword
+  | |---→ grenade
+  | '---→ flamethrower
+  |---→ flight
+  '---→ precognition

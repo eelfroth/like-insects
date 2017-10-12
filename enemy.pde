@@ -97,15 +97,16 @@ class Enemy extends RigidBody {
   void kill(boolean splatter) {
     super.kill();
     Corpse corpse = new Corpse(l.x, l.y, flip);
+    corpse.v.set(v.x, 0);
     corpses.add(corpse);
     if (splatter) corpse.kill();
     sStirb.trigger();
-    /*for(int i=0; i<10; i++) {
+    for(int i=0; i<10; i++) {
       Particle p = new Blood(l.x+6, l.y+4);
       p.v.y = -random(i/4);
       p.v.x = random(i/2 - i * flip);
       particles.add(p);
-    } */
+    } 
     if (!player.destroy) {
       kills++;
     }
@@ -147,15 +148,15 @@ class Corpse extends RigidBody {
   
   Corpse(float x, float y, int flip) {
     super(x, y,
-          20, 8,
-          1, 0.7);
+          20, 7,
+          2, 0.5);
     this.flip = flip;
     health = 32;
   }
   
   void display() {
     tCorpse.scale.x = 1 -2*flip;
-    tCorpse.draw(0, l.x + (20*flip), l.y -2);
+    tCorpse.draw(0, l.x + (20*flip), l.y -1);
    /* pg.stroke(255);
     pg.noFill();
     pg.rect(l.x, l.y, size.x, size.y);*/

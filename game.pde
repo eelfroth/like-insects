@@ -87,7 +87,7 @@ void initialize() {
   wave_time = 200;
   wave = 100;
 
-  rain_time = 20;
+  rain_time = 26;
   rain = 0;
 
   skulls_taken = 0;
@@ -214,10 +214,10 @@ void display(){
     font.align.x = CENTER;
     font.align.y = CENTER;
     font.text("MOVE: WASD\nSHOOT: MOUSE\nPRESS SPACE TO\nHARVEST SKULLS!\n\n-CLICK TO START-", pg.width/2, pg.height/2+20);
-    font.text("EELFROTH\t V1.2\n", pg.width/2, pg.height - 13);
+    font.text("EELFROTH                    v1.2A\n", pg.width/2, pg.height - 13);
   }
 }
-///////////////////////////////////////////////////
+///////////////////////////y////////////////////////
 boolean mLeft, mRight;
 
 void mousePressed() {
