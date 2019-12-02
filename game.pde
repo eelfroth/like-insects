@@ -214,7 +214,7 @@ void display(){
     font.align.x = CENTER;
     font.align.y = CENTER;
     font.text("MOVE: WASD\nSHOOT: MOUSE\nPRESS SPACE TO\nHARVEST SKULLS!\n\n-CLICK TO START-", pg.width/2, pg.height/2+20);
-    font.text("EELFROTH                    v1.2A\n", pg.width/2, pg.height - 13);
+    font.text("EELFROTH                    "+version, pg.width/2, pg.height - 13);
   }
 }
 ///////////////////////////y////////////////////////
@@ -291,4 +291,3 @@ RigidBody check_body(float x, float y) {
 }
 
 ////////////////////////////////////////////
-

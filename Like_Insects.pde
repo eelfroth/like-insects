@@ -1,5 +1,7 @@
 import ddf.minim.*;
 
+String version = "1.1.69";
+
 ///////////////////////////////////////////////////
 // Environment settings
 int     buffer_width = 426;
